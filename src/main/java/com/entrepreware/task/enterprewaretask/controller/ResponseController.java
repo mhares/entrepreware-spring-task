@@ -4,14 +4,12 @@ import com.entrepreware.task.enterprewaretask.Entity.PhoneNumber;
 import com.entrepreware.task.enterprewaretask.dao.PhoneNumberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class ResponseController {
 	@Autowired
 	private PhoneNumberRepository repo;
@@ -34,7 +32,6 @@ public class ResponseController {
 			System.out.println("Request Failed");
 			System.out.println(response.getStatusCode());
 		}
-
 		return response;
 	}
 
